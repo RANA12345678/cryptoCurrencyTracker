@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary-color">
+  <a class="navbar-brand" href="#">CRYPTO_CURRENCY TRACKER</a>
+  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" routerLinkActive=" inactive">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive=" inactive">
+        <a class="nav-link" routerLink="/bitcoin">Bitcoin</a>
+      </li>
+      <li class="nav-item" routerLinkActive=" inactive">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid mt-6">
+  <ngx-loading-bar [color]="'black'"></ngx-loading-bar>
+  <router-outlet></router-outlet>
+</div>

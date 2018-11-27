@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12" *ngIf="coinData">
+    <h1 class="display-4" [ngStyle]="{color: coinData.data.coin.color}">
+      <img class=" img-fluid" [src]="coinData.data.coin.iconUrl" [alt]="coinData.data.coin.slug" width="50" height="50">
+      {{coinData.data.coin.name}} <small class="cus-small"> ( {{coinData.data.coin.symbol}} )</small> </h1>
+    <h4> All Time High : {{coinData.data.coin.allTimeHigh.price | currency : coinData.data.base.symbol}} on
+      {{coinData.data.coin.allTimeHigh.timestamp | date}} </h4>
+    <p class="lead font-weight-normal"> {{coinData.data.coin.description}} </p>
+    <div class="chart">
+      <div class="chart__container">
+        <div class="chart__holder">
+          <chart [type]="type" [data]="data" [options]="options"></chart>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

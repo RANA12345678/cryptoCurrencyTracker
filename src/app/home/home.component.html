@@ -1,0 +1,53 @@
+<h1>Price Table</h1>
+<h6 *ngIf="coinsFullData">Prices are in {{coinsFullData.data.base.sign}} ( {{coinsFullData.data.base.symbol}} )</h6>
+<div class="row">
+  <div class="col-12">
+    <form class="form-row my-4 " #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+      <div class="col-md-4">
+        <label for="currency"> <b>Currency</b> <small> (Default : INR)</small> </label>
+        <select class="form-control" id="currency" name="currency" ngModel>
+         
+         <!-----iterative div starts here-->
+          <option *ngFor="let currency of currencies" [value]="currency">{{currency}}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="time"> <b>Time Period</b> <small> (Default : 24h)</small> </label>
+        <select class="form-control" id="time" name="time" ngModel>
+          <option *ngFor="let time of times" [value]="time">{{time}}</option>
+        </select>
+      </div>
+    
+      <div class="col-md-4 pt-4-cus">
+        <button type="submit" class="btn btn-my-primary">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- <ngx-loading-bar [color]="'red'"></ngx-loading-bar> -->
+
+<div class="row">
+  <div class="col-12">
+    <table *ngIf="coinsData" class="table table-hover">
+      <thead class="bg-primary-color text-white">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cursor-pointer" (click)="onClick(coin.id)" *ngFor="let coin of coinsData; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td> <img [src]="coin.iconUrl" [alt]="coin.slug" width="36" height="36" class="mr-2-px"> {{coin.name}} </td>
+          <td> {{coin.symbol}} </td>
+          <td>{{coin.price | currency: coinsFullData.data.base.sign}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

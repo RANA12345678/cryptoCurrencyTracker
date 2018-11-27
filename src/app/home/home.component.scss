@@ -1,0 +1,26 @@
+.pt-4-cus {
+  padding-top: 2rem !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.form-control:focus {
+  color: #574949;
+  background-color: rgb(255, 255, 255);
+  border-color: #b5000015;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(181, 109, 0, 0.37);
+}
+.mr-2-px {
+  margin-right: 3px;
+}
+.btn-my-primary {
+  background-color: lighten(#27050b, 10);
+  color: rgb(255, 255, 255);
+  &:hover {
+    background-color: #0054b5;
+  }
+  &:active {
+    border-color: #94b50017;
+  }
+}

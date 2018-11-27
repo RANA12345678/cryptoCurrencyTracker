@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="display-4" style="color: rgb(33, 247, 26);"><img class="img-fluid" height="50" width="50" src="https://cdn.coinranking.com/Sy33Krudb/btc.svg"
+        alt="bitcoin-btc"> Bitcoin <small class="cus-small"> ( BTC )</small></h1>
+    <p class="lead font-weight-normal">Bitcoin is the first decentralized digital currency that can be sent through the
+      internet globally
+      without using financial institutions like banks. The network is controlled by many of its users, instead of a few
+      entities.</p>
+
+    <p>It is a form of electronic cash. It is a decentralized digital currency without a central bank or
+      single administrator that can be sent from user-to-user on the peer-to-peer bitcoin network without the need for
+      intermediaries.
+
+      Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger
+      called a blockchain. </p>
+
+
+    <div class="row my-4">
+      <div class="col-md-4">
+        <label for="currency"> <b>Currency</b> <small> (Default : INR)</small> </label>
+        <select (change)="currecyChange($event)" class="form-control" id="currency">
+          <option *ngFor="let currency of currencies" [value]="currency">{{currency}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <div class="btn-toolbar pt-4-cus" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mx-auto" role="group" (click)="getData($event)" aria-label="First group">
+            <button type="button" value="1d" class="btn btn-outline-secondary">1d</button>
+            <button type="button" value="3w" class="btn btn-outline-secondary">1w</button>
+            <button type="button" value="1M" class="btn btn-outline-secondary">1m</button>
+            <button type="button" value="3M" class="btn btn-outline-secondary">3m</button>
+            <button type="button" value="1y" class="btn btn-outline-secondary">1y</button>
+            <button type="button" value="5y" class="btn btn-outline-secondary">5y</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="chart">
+      <div class="chart__container">
+        <div class="chart__holder">
+          <chart [type]="type" [data]="data" [options]="options"></chart>
+        </div>
+      </div>
+    </div>
+    <div class=" mt-5" *ngIf="coinFullData">
+      <h6 class="text-center">Last Updated : {{coinFullData.time.updated | date: 'full'}} </h6>
+      <p class="lead font-weight-normal text-center"> {{coinFullData.disclaimer}} </p>
+    </div>
+  </div>
+</div>
